@@ -1,0 +1,53 @@
+{
+  "seed": 42,
+  "paths": {
+    "raw_data": "data/raw/diabetic_data.csv",
+    "mapping": "data/raw/IDS_mapping.csv",
+    "processed_data": "data/processed/final_dataset.csv"
+  },
+  "cv": {
+    "outer_folds": 5,
+    "inner_folds": 3,
+    "scoring": "roc_auc",
+    "shuffle": true,
+    "random_state": 42
+  },
+  "xgboost": {
+    "n_estimators": [
+      100,
+      200,
+      300
+    ],
+    "max_depth": [
+      3,
+      5,
+      7
+    ],
+    "learning_rate": [
+      0.01,
+      0.05,
+      0.1
+    ],
+    "objective": "binary:logistic",
+    "eval_metric": "logloss"
+  },
+  "bootstrap": {
+    "n_resamples": 1000,
+    "ci": 0.95
+  },
+  "shap_stability": {
+    "n_resamples": 100,
+    "top_k": 10
+  },
+  "clinical": {
+    "threshold_min": 0.01,
+    "threshold_max": 0.3,
+    "threshold_step": 0.01,
+    "operating_threshold": 0.1
+  },
+  "assumptions": {
+    "grid_values": "Paper specifies the three tuned parameters but does not publish candidate values.",
+    "diagnosis_ranges": "Standard ICD-9 grouping consistent with the diagnosis-group categories explicitly listed by the paper.",
+    "aggregate_feature_formulas": "The main paper names several aggregate features in the SHAP figure but does not publish formulas; formulas are documented in src/features.py."
+  }
+}
