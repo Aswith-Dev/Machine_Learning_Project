@@ -1,0 +1,92 @@
+{
+  "seed": 42,
+  "paths": {
+    "raw_data": "data/raw/diabetic_data.csv",
+    "mapping": "data/raw/IDS_mapping.csv",
+    "train_raw": "data/splits/train.csv",
+    "test_raw": "data/splits/test.csv",
+    "split_manifest": "data/splits/split_manifest.json",
+    "processed_train_data": "data/processed/train_final_dataset.csv"
+  },
+  "cv": {
+    "outer_folds": 5,
+    "inner_folds": 3,
+    "scoring": "roc_auc",
+    "shuffle": true,
+    "random_state": 42,
+    "splitter": "StratifiedGroupKFold",
+    "group_variable": "patient_nbr"
+  },
+  "xgboost": {
+    "n_estimators": [
+      100,
+      200,
+      300
+    ],
+    "max_depth": [
+      3,
+      5,
+      7
+    ],
+    "learning_rate": [
+      0.01,
+      0.05,
+      0.1
+    ],
+    "objective": "binary:logistic",
+    "eval_metric": "logloss"
+  },
+  "bootstrap": {
+    "n_resamples": 1000,
+    "ci": 0.95
+  },
+  "shap_stability": {
+    "n_resamples": 100,
+    "top_k": 10
+  },
+  "clinical": {
+    "threshold_min": 0.01,
+    "threshold_max": 0.3,
+    "threshold_step": 0.01,
+    "operating_threshold": 0.1
+  },
+  "assumptions": {
+    "grid_values": "Paper specifies the three tuned parameters but does not publish candidate values.",
+    "diagnosis_ranges": "Standard ICD-9 grouping consistent with the diagnosis-group categories explicitly listed by the paper.",
+    "aggregate_feature_formulas": "The main paper names several aggregate features in the SHAP figure but does not publish formulas; formulas are documented in src/features.py."
+  },
+  "split": {
+    "test_size": 0.2,
+    "random_state": 42,
+    "stratify": true,
+    "unit": "patient_nbr",
+    "patient_stratification": "patient_has_readmission_lt30"
+  },
+  "calibration": {
+    "oof_folds": 5,
+    "method": "sigmoid",
+    "source": "training-only out-of-fold probabilities",
+    "group_variable": "patient_nbr",
+    "correctness_method": "sigmoid",
+    "correctness_target": "prediction_correct",
+    "correctness_input": "base_confidence",
+    "correctness_outputs": [
+      "P(prediction_is_correct)",
+      "uncertainty=1-P(prediction_is_correct)",
+      "ECE",
+      "Brier",
+      "log_loss",
+      "selective_coverage"
+    ]
+  },
+  "threshold_selection": {
+    "metric": "f1",
+    "min": 0.01,
+    "max": 0.3,
+    "step": 0.01,
+    "paper_reference_threshold": 0.1
+  },
+  "test_evaluation": {
+    "shap_top_k": 10
+  }
+}

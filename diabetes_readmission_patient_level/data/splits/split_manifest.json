@@ -1,0 +1,16 @@
+{
+  "raw_rows": 101766,
+  "raw_unique_patients": 71518,
+  "train_rows": 81347,
+  "test_rows": 20419,
+  "train_unique_patients": 57214,
+  "test_unique_patients": 14304,
+  "patient_overlap": 0,
+  "test_size_requested": 0.2,
+  "random_state": 42,
+  "split_unit": "patient_nbr",
+  "stratified_by": "patient_has_readmission_lt30",
+  "train_positive_rate": 0.11152224421306256,
+  "test_positive_rate": 0.11190557813800872,
+  "note": "Patient-level holdout: all encounters from each patient are assigned to exactly one side. Patient-level grouping is also enforced in nested CV and calibration OOF generation."
+}

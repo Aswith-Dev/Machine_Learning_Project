@@ -1,0 +1,2 @@
+selected_threshold,selection_metric,selection_source,best_f1
+0.13,f1,training-only out-of-fold calibrated probabilities,0.2746350899818278

@@ -1,0 +1,9 @@
+{
+  "roc_auc_mean": 0.6663448094322485,
+  "roc_auc_std": 0.005319878678556892,
+  "f1_mean": 0.2698836459979851,
+  "pr_auc_mean": 0.20990552719471559,
+  "cv_type": "StratifiedGroupKFold",
+  "group_variable": "patient_nbr",
+  "patient_overlap_across_outer_folds": 0
+}

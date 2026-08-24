@@ -1,0 +1,2 @@
+correctness_brier,correctness_log_loss,correctness_ece,actual_accuracy,mean_correctness_confidence,n_test
+0.09515773898936325,0.33101783277014724,0.0031419658900362565,0.6880846270630295,0.690046892083996,20419

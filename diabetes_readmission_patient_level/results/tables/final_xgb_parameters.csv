@@ -1,0 +1,2 @@
+model__n_estimators,model__max_depth,model__learning_rate
+300,5,0.01

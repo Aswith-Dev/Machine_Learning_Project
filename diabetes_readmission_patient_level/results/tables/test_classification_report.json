@@ -1,0 +1,27 @@
+{
+  "not_readmitted_within_30_days": {
+    "precision": 0.9211713324264338,
+    "recall": 0.7094959744127054,
+    "f1-score": 0.8015949658889131,
+    "support": 18134.0
+  },
+  "readmitted_within_30_days": {
+    "precision": 0.18350898946063235,
+    "recall": 0.5181619256017506,
+    "f1-score": 0.27103124642325743,
+    "support": 2285.0
+  },
+  "accuracy": 0.6880846270630295,
+  "macro avg": {
+    "precision": 0.5523401609435331,
+    "recall": 0.613828950007228,
+    "f1-score": 0.5363131061560853,
+    "support": 20419.0
+  },
+  "weighted avg": {
+    "precision": 0.8386228014662077,
+    "recall": 0.6880846270630295,
+    "f1-score": 0.7422219261230566,
+    "support": 20419.0
+  }
+}
