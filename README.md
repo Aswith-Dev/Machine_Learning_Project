@@ -1,5 +1,5 @@
 ## Machine Learning
-# Diabetes Readmission — Patient-Level Nested CV + Individual Prediction Reliability Extension
+#Diabetes Readmission — Patient-Level Nested CV + Individual Prediction Reliability Extension
 
 This project starts from the supplied replication and adds a patient-level holdout, patient-level nested cross-validation, and a second-stage correctness calibrator for individual prediction reliability.
 
